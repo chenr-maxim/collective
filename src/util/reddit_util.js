@@ -4,13 +4,6 @@ import snoowrap from "snoowrap";
 
 const clientId = keys.clientId;
 const clientSecret = keys.clientSecret;
-const authBasic = window.btoa(clientId + ':' + clientSecret);
-
-const code = new URL(window.location.href).searchParams.get('code');
-const redditData = new FormData();
-redditData.append('code', code);
-redditData.append('grant_type', 'authorization_code');
-redditData.append('redirect_uri', 'http://localhost:3000/callback');
 
 export const authenticationUrl = snoowrap.getAuthUrl({
   clientId: clientId,
@@ -20,20 +13,33 @@ export const authenticationUrl = snoowrap.getAuthUrl({
   state: 'random'
 });
 
-export const redditAuthToken = () => {
-  axios({
+export const redditAuthToken = (code) => {
+  const authBasic = window.btoa(clientId + ':' + clientSecret);
+  const redditData = new FormData();
+  redditData.append('code', code);
+  redditData.append('grant_type', 'authorization_code');
+  redditData.append('redirect_uri', 'http://localhost:3000/callback');
+
+  return axios({
     method: 'post',
     url: 'https://www.reddit.com/api/v1/access_token',
     data: redditData,
     headers: {
       "Authorization": `Basic ` + authBasic,
-      'user-agent': 'collective',
+      "user-agent": "collective",
       "Content-Type": "application/x-www-form-urlencoded"
     }
-  }).then(res => {
-    const reddit = new snoowrap({userAgent: 'collective', accessToken: res.data.access_token});
-    localStorage.setItem('reddit', JSON.stringify(reddit));
-    console.log(res.data);
-    return res.data;
+  })
+  .then(res => {
+    storeAuth(res.data.access_token);
+    return;
   }).catch((err) => console.log(err));
-};
+}
+
+export const getAuth = () => {
+  return JSON.parse(localStorage.getItem('authToken'));
+}
+
+const storeAuth = (authtoken) => {
+  localStorage.setItem('authToken', JSON.stringify(authtoken));
+}

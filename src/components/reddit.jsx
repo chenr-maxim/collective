@@ -1,21 +1,32 @@
 import React from "react";
-import {redditAuthToken} from "../util/redditsetup";
+import {redditAuthToken} from "../util/reddit_util";
+import { Redirect } from "react-router-dom";
 
 class Reddit extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      redirect: false
+    }
   }
 
-  componentDidMount() {
-    redditAuthToken();
-    window.location.href = ""
+  async componentDidMount() {
+    const code = new URL(window.location.href).searchParams.get('code');
+    await redditAuthToken(code);
+    this.setState({redirect: true});
   }
 
   render() {
+    const { redirect } = this.state;
+
+    if(redirect) {
+      return <Redirect to='/'/>
+    }
     return (
-      <div>
-        <h4> Reddit </h4>
-      </div>
+      <>
+        {/* loading spinner */}
+      </>
     )
   }
 }
