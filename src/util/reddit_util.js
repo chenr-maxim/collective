@@ -7,7 +7,7 @@ const clientSecret = keys.clientSecret;
 
 export const authenticationUrl = snoowrap.getAuthUrl({
   clientId: clientId,
-  scope: ['identity', 'account', 'mysubreddits', 'read'],
+  scope: ['identity', 'account', 'mysubreddits', 'subscribe', 'read'],
   redirectUri: 'http://localhost:3000/callback',
   permanent: false,
   state: 'random'

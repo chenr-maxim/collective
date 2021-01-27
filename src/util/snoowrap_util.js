@@ -6,7 +6,6 @@ export const getSnoowrap = () => {
     userAgent: 'collective',
     accessToken: getAuth()
   });
-  console.log('snoowrap');
   return r;
 }
 
@@ -14,3 +13,14 @@ export const getUserInfo = () => {
   return getSnoowrap().getMe().then(console.log);
 }
 
+export const getUserSubreddits = () => {
+  return getSnoowrap().getSubscriptions().fetchAll();
+}
+
+export const getScopes = () => {
+  return getSnoowrap().getOauthScopeList().then(console.log);
+}
+
+export const getSubreddit = (name) => {
+  return getSnoowrap().getSubreddit(name);
+}
