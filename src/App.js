@@ -2,7 +2,7 @@ import Reddit from "./components/reddit";
 import Homepage from "./components/home";
 import Login from "./components/login";
 import {PrivateRoute} from "./util/routes";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 function App() {
   return (

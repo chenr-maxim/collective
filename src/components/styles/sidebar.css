@@ -1,0 +1,13 @@
+.subredditContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.subreddit {
+  width: 100%;
+}
+
+Col {
+  max-width: 150px;
+}

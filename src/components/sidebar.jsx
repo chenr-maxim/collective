@@ -1,9 +1,10 @@
 import React from "react";
+import "./styles/sidebar.css"
 
 const sortArray = (array) => {
   array.sort(function(a, b) {
-    var subredditA = (a.display_name);
-    var subredditB = (b.display_name);
+    var subredditA = (a.display_name).toUpperCase();
+    var subredditB = (b.display_name).toUpperCase();
     return (subredditA < subredditB ) ? -1 : ( subredditA > subredditB ) ? 1 : 0;
   });
 }
@@ -14,12 +15,12 @@ export const Sidebar = ({subredditEmpty, subredditList}) => {
   }
 
   return (
-    <div>
+    <div className="subredditContainer">
     <h4> side bar </h4>
     {
       !subredditEmpty ? 
         subredditList.map(function(item, i) {
-          return <div key={i}>{item.url}</div>
+          return <div className="subreddit" key={i}>{item.url}</div>
         })
       : null
     }
