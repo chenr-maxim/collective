@@ -14,7 +14,8 @@ export const getUserInfo = () => {
 }
 
 export const getUserSubreddits = () => {
-  return getSnoowrap().getSubscriptions().fetchAll();
+  return getSnoowrap().getSubscriptions({limit: 2});
+  // .fetchAll();
 }
 
 export const getScopes = () => {

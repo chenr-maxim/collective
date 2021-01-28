@@ -1,4 +1,6 @@
 import React from "react";
+import {SubredditItem} from "./subreddits/subreddit_item";
+import {getUserSubreddits} from "../util/snoowrap_util";
 import "./styles/sidebar.css"
 
 const sortArray = (array) => {
@@ -9,51 +11,43 @@ const sortArray = (array) => {
   });
 }
 
-export const Sidebar = ({subredditEmpty, subredditList}) => {
-  if(!subredditEmpty) {
-    sortArray(subredditList);
+export class Sidebar extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      subredditEmpty: true,
+      subredditList: []
+    }
   }
 
-  return (
-    <div className="subredditContainer">
-    <h4> side bar </h4>
-    {
-      !subredditEmpty ? 
-        subredditList.map(function(item, i) {
-          return <div className="subreddit" key={i}>{item.url}</div>
-        })
-      : null
-    }
-    </div>
-  )
-};
+  componentDidMount() {
+    getUserSubreddits().then((listings) => {
+      const [...rest] = listings;
+      this.setState({subredditEmpty: false, subredditList: rest});
+      console.log(this.state);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
 
-// export class Sidebar extends React.Component {
-//   constructor(props) {
-//     super(props);
+  render() {
+    const list = !this.state.subredditEmpty ? 
+      (
+      sortArray(this.state.subredditList),
+      this.state.subredditList.map((item, i) => {
+        return <SubredditItem
+          key = {i}
+          subreddit={item}
+        />
+      })) : [];
 
-//     console.log(props);
-
-//     this.state = {
-//       subredditEmpty: false,
-//       ...props
-//     }
-//   }
-  
-//   render() {
-//     console.log(this.state);
-    // return (
-    //   <>
-    //   <h4> side bar </h4>
-    //   {
-    //     !this.state.subredditEmpty ?
-    //     this.state.subredditList.map(function(item, i) {
-    //       return <li key={i}>{item.url}</li>
-    //     })
-    //     : null
-    //   }
-      
-//       </>
-//     )
-//   }
-// }
+    return (
+      <div className="subredditContainer">
+        <h4> side bar </h4>
+        <ul className="subredditList">
+          {list}
+        </ul>
+      </div>
+    )
+  }
+}

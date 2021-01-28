@@ -2,9 +2,9 @@ import React from "react";
 import {authenticationUrl} from "../util/reddit_util";
 
 class Login extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   componentDidMount() {
   }
