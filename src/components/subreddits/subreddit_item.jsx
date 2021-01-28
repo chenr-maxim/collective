@@ -4,7 +4,7 @@ import {useDrag} from 'react-dnd';
 
 export const SubredditItem = ({subreddit}) => {
   const [{isDragging}, drag] = useDrag({
-    item: {name:'subreddit_item',type: ItemTypes.SUBREDDIT_ITEM},
+    item: {name:'subreddit_item',type: ItemTypes.SUBREDDIT_ITEM, obj: subreddit},
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
       console.log(dropResult);
@@ -17,8 +17,7 @@ export const SubredditItem = ({subreddit}) => {
     <div
       ref={drag}
       style={{
-        opacity: isDragging ? 0.2 : 1,
-        // fontWeight: 'bold'
+        opacity: isDragging ? 0.2 : 1      
       }}
     >
       {subreddit.url}

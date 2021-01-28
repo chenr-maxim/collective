@@ -40,6 +40,12 @@ export const getAuth = () => {
   return JSON.parse(localStorage.getItem('authToken'));
 }
 
+export const logoutAuth = () => {
+  localStorage.remove('authToken');
+  window.location.href = '/login';
+}
+
 const storeAuth = (authtoken) => {
   localStorage.setItem('authToken', JSON.stringify(authtoken));
 }
+

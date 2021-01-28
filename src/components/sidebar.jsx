@@ -27,6 +27,7 @@ export class Sidebar extends React.Component {
       console.log(this.state);
     }).catch((err) => {
       console.log(err);
+      alert('auth token expired');
     });
   }
 

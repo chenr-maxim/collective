@@ -2,11 +2,18 @@ import snoowrap from "snoowrap";
 import {getAuth} from "./reddit_util";
 
 export const getSnoowrap = () => {
-  const r = new snoowrap({
-    userAgent: 'collective',
-    accessToken: getAuth()
-  });
-  return r;
+  try {
+    const reddit_wrapper = new snoowrap({
+      userAgent: 'collective',
+      accessToken: getAuth()
+    });
+    return reddit_wrapper;
+  }
+  catch {
+    console.log('cant get snoowrap');
+    return false;
+  }
+  
 }
 
 export const getUserInfo = () => {
