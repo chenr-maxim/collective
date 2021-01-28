@@ -1,4 +1,4 @@
-import Reddit from "./components/reddit";
+import Reddit from "./util/reddit";
 import Homepage from "./components/home";
 import Login from "./components/login";
 import {PrivateRoute} from "./util/routes";

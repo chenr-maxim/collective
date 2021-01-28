@@ -1,5 +1,5 @@
 import React from "react";
-import {redditAuthToken} from "../util/reddit_util";
+import {redditAuthToken} from "./reddit_util";
 import { Redirect } from "react-router-dom";
 
 class Reddit extends React.Component {
