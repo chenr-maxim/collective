@@ -27,7 +27,7 @@ export class Sidebar extends React.Component {
       console.log(this.state);
     }).catch((err) => {
       console.log(err);
-      alert('auth token expired');
+      window.location.href='/login';
     });
   }
 
@@ -44,7 +44,9 @@ export class Sidebar extends React.Component {
 
     return (
       <div className="subredditContainer">
-        <h4> side bar </h4>
+        <h4> collective </h4>
+        <br/>
+        <h4> my subreddits </h4>
         <ul className="subredditList">
           {list}
         </ul>

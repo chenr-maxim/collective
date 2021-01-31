@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {ItemTypes} from './subreddits/ItemTypes';
-import {Iframe} from './subreddits/iframe';
 import {DropTarget, useDrop} from 'react-dnd';
+import { getSubredditContent } from '../util/snoowrap_util';
+import {SubredditView} from './subreddits/subreddit_view';
 
 export const View = () => {
   const[{canDrop, isOver}, drop] = useDrop({
@@ -15,15 +16,24 @@ export const View = () => {
       canDrop: monitor.canDrop(),
     }),
   });
-  const [subredditUrl, setSubredditUrl] = useState('');
+  const [selectedSubreddit, setSubredditContent] = useState('');
 
   const renderSubreddit = (item) => {
     const subreddit = item.obj;
-    const source_url = `https://reddit.com${subreddit.url}`;
-    setSubredditUrl({
-      subredditUrl: source_url
-    });
-    console.log('hey i got moved bro');
+    getSubredditContent(subreddit.display_name)
+    .then((res) =>{
+      console.log(res);
+      setSubredditContent(res);
+      console.log(selectedSubreddit);
+    })
+    .catch(err => {
+      console.error(err);
+    })
+
+
+
+    // setSubredditContent(subreddit_content);
+    // console.log(selectedSubreddit);
   }
 
   return (
@@ -32,8 +42,8 @@ export const View = () => {
       className="viewContainer">
       main view
       <div>
-        <Iframe 
-          source={subredditUrl}
+        <SubredditView
+          content = {selectedSubreddit}
         />
       </div>
     </div>

@@ -2,18 +2,17 @@ import snoowrap from "snoowrap";
 import {getAuth} from "./reddit_util";
 
 export const getSnoowrap = () => {
-  try {
+  const auth_token = getAuth();
+
+  if(auth_token != null) {
     const reddit_wrapper = new snoowrap({
       userAgent: 'collective',
       accessToken: getAuth()
     });
+    // console.log(reddit_wrapper);
     return reddit_wrapper;
   }
-  catch {
-    console.log('cant get snoowrap');
-    return false;
-  }
-  
+  window.location.href='/login';
 }
 
 export const getUserInfo = () => {
@@ -21,14 +20,14 @@ export const getUserInfo = () => {
 }
 
 export const getUserSubreddits = () => {
-  return getSnoowrap().getSubscriptions({limit: 2});
-  // .fetchAll();
+  return getSnoowrap().getSubscriptions().fetchAll();
 }
 
 export const getScopes = () => {
   return getSnoowrap().getOauthScopeList().then(console.log);
 }
 
-export const getSubreddit = (name) => {
-  return getSnoowrap().getSubreddit(name);
+export const getSubredditContent = (name) => {
+  const content = getSnoowrap().getSubreddit(name).fetch();
+  return content;
 }

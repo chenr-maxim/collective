@@ -6,7 +6,6 @@ import {DndProvider} from 'react-dnd';
 import {HTML5Backend} from 'react-dnd-html5-backend';
 import "./styles/home.css"
 
-
 class Homepage extends React.Component {
   constructor(props) {
     super(props);
@@ -25,13 +24,14 @@ class Homepage extends React.Component {
     //   console.log(err);
     // });
     // await this.setState({subredditEmpty: false, subreddits: subreddits});
+
   }
 
   render() {
 
     return (
-      <>
-      <Container fluid style={{padding: '0 0 0 0'}}>
+      <div className="main">
+        <Container fluid style={{padding: '0 0 0 0'}}>
         <Row noGutters={true}>
           <DndProvider backend={HTML5Backend}>          
             <Col lg={2}>  
@@ -44,9 +44,9 @@ class Homepage extends React.Component {
               <View />
             </Col>
           </DndProvider>
-        </Row>
+        </Row>          
       </Container>
-      </>
+      </div>
     )
   }
 }

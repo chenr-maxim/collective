@@ -2,12 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
+  border-right: 1px solid white;
 }
 
-.subreddit {
+.subredditList {
   width: 100%;
-}
-
-Col {
-  max-width: 150px;
 }
