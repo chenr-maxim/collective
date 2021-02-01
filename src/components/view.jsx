@@ -22,18 +22,11 @@ export const View = () => {
     const subreddit = item.obj;
     getSubredditContent(subreddit.display_name)
     .then((res) =>{
-      console.log(res);
       setSubredditContent(res);
-      console.log(selectedSubreddit);
     })
     .catch(err => {
       console.error(err);
     })
-
-
-
-    // setSubredditContent(subreddit_content);
-    // console.log(selectedSubreddit);
   }
 
   return (
