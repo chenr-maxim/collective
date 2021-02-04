@@ -44,9 +44,12 @@ export class Sidebar extends React.Component {
 
     return (
       <div className="subredditContainer">
-        <h4> collective </h4>
-        <br/>
-        <h4> my subreddits </h4>
+        <div className="collectiveTitle"> 
+          co<span style={{color: "#2699FB"}}>ll</span>ective 
+        </div>
+        <div className="subredditsTitle"> 
+          my subreddits 
+        </div>
         <ul className="subredditList">
           {list}
         </ul>

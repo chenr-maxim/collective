@@ -3,6 +3,7 @@ import Homepage from "./components/home";
 import Login from "./components/login";
 import {PrivateRoute} from "./util/routes";
 import { Route, Switch, Redirect } from "react-router-dom";
+import './App.css';
 
 
 function App() {

@@ -1,0 +1,38 @@
+html {
+  background-color: #171717;
+  font-family: "Visuelt Pro";
+  font-weight: medium;
+  font-size: 20px;
+}
+
+@font-face {
+  font-family: "Visuelt Pro";
+  src: url("./components/styles/font/VisueltPro/VisueltPro-Bold.ttf") format("truetype"),
+      url("./components/styles/font/VisueltPro/VisueltPro-Bold.woff") format("woff"),
+      url("./components/styles/font/VisueltPro/VisueltPro-Bold.woff2") format("woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Visuelt Pro";
+  src: url("./components/styles/font/VisueltPro/VisueltPro-Regular.ttf") format("truetype"),
+      url("./components/styles/font/VisueltPro/VisueltPro-Regular.woff") format("woff"),
+      url("./components/styles/font/VisueltPro/VisueltPro-Regular.woff2") format("woff2");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Visuelt Pro Medium";
+  src: url("./components/styles/font/VisueltPro/VisueltPro-Medium.ttf") format("truetype"),
+      url("./components/styles/font/VisueltPro/VisueltPro-Medium.woff") format("woff"),
+      url("./components/styles/font/VisueltPro/VisueltPro-Medium.woff2") format("woff2");
+  font-weight: medium;
+}
+
+@font-face {
+  font-family: "Visuelt Pro";
+  src: url("./components/styles/font/VisueltPro/VisueltPro-Light.ttf") format("truetype"),
+      url("./components/styles/font/VisueltPro/VisueltPro-Light.woff") format("woff"),
+      url("./components/styles/font/VisueltPro/VisueltPro-Light.woff2") format("woff2");
+  font-weight: lighter;
+}

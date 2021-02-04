@@ -30,7 +30,7 @@ class Homepage extends React.Component {
   render() {
 
     return (
-      <div className="main">
+      <>
         <Container fluid style={{padding: '0 0 0 0'}}>
         <Row noGutters={true}>
           <DndProvider backend={HTML5Backend}>          
@@ -46,7 +46,7 @@ class Homepage extends React.Component {
           </DndProvider>
         </Row>          
       </Container>
-      </div>
+      </>
     )
   }
 }
