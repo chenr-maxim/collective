@@ -1,6 +1,7 @@
 import React from "react";
 import {SubredditItem} from "./subreddits/subreddit_item";
 import {getUserSubreddits} from "../util/snoowrap_util";
+import {logoutAuth} from "../util/reddit_util";
 import "./styles/sidebar.css"
 
 const sortArray = (array) => {
@@ -44,6 +45,7 @@ export class Sidebar extends React.Component {
 
     return (
       <div className="subredditContainer">
+        <button onClick={logoutAuth}> logout</button>
         <div className="collectiveTitle"> 
           co<span style={{color: "#2699FB"}}>ll</span>ective 
         </div>

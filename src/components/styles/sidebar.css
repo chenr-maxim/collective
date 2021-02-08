@@ -26,6 +26,7 @@
 .subredditList {
   display: flex;
   flex-direction: column;
+  font-size: 2vmin;
   padding: 35px 0 0 50px;
   width: 100%;
 }
@@ -33,4 +34,18 @@
 .subredditList div {
   width: 100%;
   padding: 0 0 5px 0;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+button:hover {
+  color: white;
+  background-color: rgba(38,153,251,0.9);
+  outline: none;
+  -webkit-box-shadow: inset 0px 0px 2px black;
+     -moz-box-shadow: inset 0px 0px 2px black;
+          box-shadow: inset 0px 0px 2px black;
 }

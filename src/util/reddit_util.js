@@ -41,7 +41,7 @@ export const getAuth = () => {
 }
 
 export const logoutAuth = () => {
-  localStorage.remove('authToken');
+  localStorage.removeItem('authToken');
   window.location.href = '/login';
 }
 
