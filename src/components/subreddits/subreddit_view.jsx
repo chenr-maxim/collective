@@ -1,5 +1,6 @@
 import {Navbar} from "./navbar";
 import {Posts} from "./posts_item";
+import "../styles/subreddit_view.css";
 
 export const SubredditView = ({content, listings}) => {
   const posts = listings.length !== 0 ? listings.map((post, i) => {
@@ -12,7 +13,7 @@ export const SubredditView = ({content, listings}) => {
   }) : [];
 
   return (
-    <div>
+    <div className="subreddit_container">
       <Navbar 
         content = {content.url}
       />
@@ -22,10 +23,12 @@ export const SubredditView = ({content, listings}) => {
           // height: '15vh'
         }}
         alt="banner_img"
+        className="banner_img"
         src={content.banner_background_image}
       />
       <img
         alt="subreddit_icon"
+        className="icon_img"
         src={content.icon_img}
       />
       <div className="listingsContainer">

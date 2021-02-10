@@ -33,7 +33,7 @@ export const getSubredditContent = (name) => {
 }
 
 export const getSubredditHot = (name) => {
-  const content = getSnoowrap().getSubreddit(name).getHot({limit: 25});
+  const content = getSnoowrap().getSubreddit(name).getHot({limit: 2});
   return content;
 }
 

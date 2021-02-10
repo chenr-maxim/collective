@@ -1,0 +1,19 @@
+.subreddit_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon_img {
+  width: 5%;
+}
+
+.banner_img {
+  width: 5vw;
+}
+
+.listingsContainer {
+  display: flex;
+  width: 75%;
+  margin: 0 0 0 auto;
+  align-self: center;
+}
