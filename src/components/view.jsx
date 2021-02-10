@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ItemTypes} from './subreddits/ItemTypes';
 import {DropTarget, useDrop} from 'react-dnd';
-import { getSubredditContent } from '../util/snoowrap_util';
+import { getSubredditContent, getSubredditHot } from '../util/snoowrap_util';
 import {SubredditView} from './subreddits/subreddit_view';
 
 export const View = () => {
@@ -17,21 +17,27 @@ export const View = () => {
     }),
   });
   const [selectedSubreddit, setSubredditContent] = useState([]);
+  const [subredditListings, setSubredditListings] = useState([]);
   const [columns, setNumberOfColumns] = useState(1);
 
-  const renderSubreddit = (item) => {
+  const renderSubreddit = async (item) => {
     const subreddit = item.obj;
-    getSubredditContent(subreddit.display_name)
+    await getSubredditContent(subreddit.display_name)
     .then((res) =>{
       setSubredditContent(state => [res, ...state]);
     })
     .catch(err => {
       console.error(err);
+    });
+    await getSubredditHot(subreddit.display_name)
+    .then((res) => {
+      setSubredditListings(state => [...res]);
+    })
+    .catch(err => {
+      console.error(err);
     })
   }
-  // console.log(columns);
-  // console.log(selectedSubreddit);
-  
+
   return (
     <>
       <div ref={drop} 
@@ -46,11 +52,12 @@ export const View = () => {
             selectedSubreddit.length === 0 ?
             <SubredditView 
               content = {selectedSubreddit} 
+              listings = {subredditListings}
             /> : 
             <SubredditView 
-              content = {selectedSubreddit[0]} 
+              content = {selectedSubreddit[0]}
+              listings = {subredditListings} 
             />
-            
           }
           {isOver && (
             <div

@@ -1,17 +1,16 @@
 .subredditContainer {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 100%;
-  border-right: 1px solid white;
+  width: 16%;
   justify-items: center;
-
 }
 
 .collectiveTitle {
   display: flex; 
-  padding: 50px 0 0 50px;
-  font-size: 48px;
+  padding: 75px 0 0 50px;
+  font-size: 42px;
   font-weight: bold;
 }
 
@@ -37,6 +36,8 @@
 }
 
 button {
+  width: inherit;
+  position: fixed;
   outline: none;
   border: none;
 }

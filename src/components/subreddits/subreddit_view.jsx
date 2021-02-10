@@ -1,7 +1,16 @@
 import {Navbar} from "./navbar";
+import {Posts} from "./posts_item";
 
-export const SubredditView = ({content}) => {
-  console.log(content);
+export const SubredditView = ({content, listings}) => {
+  const posts = listings.length !== 0 ? listings.map((post, i) => {
+    return (
+    <Posts 
+      key={i}
+      post={post} 
+      />
+    )
+  }) : [];
+
   return (
     <div>
       <Navbar 
@@ -19,6 +28,11 @@ export const SubredditView = ({content}) => {
         alt="subreddit_icon"
         src={content.icon_img}
       />
+      <div className="listingsContainer">
+        <ul>
+          {posts}
+        </ul>
+      </div>
     </div>
   )
 }

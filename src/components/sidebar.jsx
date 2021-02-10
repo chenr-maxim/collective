@@ -25,7 +25,6 @@ export class Sidebar extends React.Component {
     getUserSubreddits().then((listings) => {
       const [...rest] = listings;
       this.setState({subredditEmpty: false, subredditList: rest});
-      console.log(this.state);
     }).catch((err) => {
       console.log(err);
       window.location.href='/login';
