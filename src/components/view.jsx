@@ -30,7 +30,7 @@ export const View = () => {
     })
   }
   // console.log(columns);
-  console.log(selectedSubreddit);
+  // console.log(selectedSubreddit);
   
   return (
     <>
@@ -41,7 +41,6 @@ export const View = () => {
           zIndex: 1,
         }}
         className="viewContainer">
-        main view
         <div>
           {
             selectedSubreddit.length === 0 ?
@@ -69,11 +68,6 @@ export const View = () => {
           )}
         </div>
       </div>
-      {/* <div ref={drop}
-        style={{width:'50vw', height: '50vh'}}
-      >
-        2nd column
-      </div> */}
     </>
   )
 }

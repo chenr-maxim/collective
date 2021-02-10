@@ -31,3 +31,28 @@ export const getSubredditContent = (name) => {
   const content = getSnoowrap().getSubreddit(name).fetch();
   return content;
 }
+
+export const getSubredditHot = (name) => {
+  const content = getSnoowrap().getSubreddit(name).getHot().then(console.log);
+  return content;
+}
+
+export const getSubredditNew = (name) => {
+  const content = getSnoowrap().getSubreddit(name).getNew().then(console.log);
+  return content;
+}
+
+export const getSubredditTop = (name, filter) => {
+  const content = getSnoowrap().getSubreddit(name).getTop({time:`${filter}`}).then(console.log);
+  return content;
+}
+
+export const getSubredditControversial = (name, filter) => {
+  const content = getSnoowrap().getSubreddit(name).getControversial({time:`${filter}`}).then(console.log);
+  return content;
+}
+
+export const getSubredditRising = (name) => {
+  const content = getSnoowrap().getSubreddit(name).getRising().then(console.log);
+  return content;
+}
