@@ -6,9 +6,11 @@
 
 .post_header {
   display: flex;
+  padding: 5px 0 0 0;
 }
 
 .link_flair {
+  padding: 3px 0 0 0;
   border: 1px solid ivory;
   font-weight: bold;
 }
@@ -17,3 +19,38 @@
   width: 100px;
 }
 
+.pin_icon {
+  display: flex;
+  font-size: 16px;
+}
+
+.pin_icon > img {
+  width: 1.4vw;
+}
+
+.pin_icon > div {
+  padding: 3px 5px 0 0;
+}
+
+.post_author, .link_flair {
+  font-size: 16px;
+}
+
+.post_author {
+  padding: 3px 0 0 5px;
+  font-weight: medium;
+}
+
+.post_awards {
+  display: flex;
+  width: 1.5vw;
+  padding: 0 5px 0 0;
+}
+
+.vote_arrow > button > img {
+  width: 5px;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
