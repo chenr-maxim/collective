@@ -1,0 +1,25 @@
+.navbar_container {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  background: #171717;
+  border-bottom: 1px solid ivory;
+  height: 60px;
+}
+
+.navbar_elements {
+  display: flex;
+  padding-top: 20px;
+}
+
+.navbar_elements > h4 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar_search {
+  position: absolute;
+  top: 16px;
+  left: 50.7%;
+  height: 30px;
+}

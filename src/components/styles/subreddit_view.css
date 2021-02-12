@@ -20,3 +20,7 @@
   display: flex;
   margin: 0 0 0 21vw;
 }
+
+.content_view {
+  margin-top: 60px;
+}

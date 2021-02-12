@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {ItemTypes} from './subreddits/ItemTypes';
 import {DropTarget, useDrop} from 'react-dnd';
 import { getSubredditContent, getSubredditHot } from '../util/snoowrap_util';
@@ -35,7 +35,7 @@ export const View = () => {
     })
     .catch(err => {
       console.error(err);
-    })
+    });
   }
 
   return (
@@ -62,9 +62,9 @@ export const View = () => {
           {isOver && (
             <div
               style={{
-                position: 'absolute',
+                position: 'fixed',
                 top: 0,
-                left: 0,
+                left: '16.6vw',
                 height: '100%',
                 width: '100%',
                 zIndex: 1,

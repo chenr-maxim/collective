@@ -9,12 +9,14 @@ export const Posts = ({post}) => {
       switch(post.post_hint) {
         case 'image':
           return (
-            <div>
+            post.preview.images || post.preview.images[0].resolutions ? 
+            (<div>
               <img
-                src={post.preview.images[0].resolutions[3].url}
+                // style={{width: '100%'}}
+                src={post.preview.images[0].resolutions[2].url}
               >
               </img>
-            </div>
+            </div>) : null
           )
         case 'video':
           return 'video'
@@ -42,6 +44,7 @@ export const Posts = ({post}) => {
     if(!post.is_self && !post.is_video && !post.is_gallery) {
       return (
         <img
+          style={{width: '100%'}}
           src={post.url}
         ></img>
       )
