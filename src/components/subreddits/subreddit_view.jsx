@@ -1,5 +1,6 @@
 import {Navbar} from "./navbar";
 import {Posts} from "./posts_item";
+// import {Container, Row, Col} from 'react-bootstrap';
 import "../styles/subreddit_view.css";
 
 export const SubredditView = ({content, listings}) => {
@@ -13,14 +14,15 @@ export const SubredditView = ({content, listings}) => {
   }) : [];
 
   return (
-    <div className="subreddit_container">
-      <Navbar 
-        content = {content.url}
-      />
+    <div className="subreddit_view_container">
+      <div className="header">
+        <Navbar 
+          content = {content.url}
+        />
+      </div>
       <img
         style={{
-          width: '100vw',
-          // height: '15vh'
+          width: '100vw'
         }}
         alt="banner_img"
         className="banner_img"

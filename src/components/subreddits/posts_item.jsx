@@ -1,28 +1,67 @@
 import "../styles/post_item.css";
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 export const Posts = ({post}) => {
   console.log(post);
 
   const returnMediaType = (post) => {
-    switch(post.post_hint) {
-      case 'image':
-        return (
-          <div>
-            <img
-              src={post.url}
-            >
-            </img>
-          </div>
-        )
-      case 'video':
-        return 'video'
-        // break;
-      case 'link':
-        return 'link';
-        // break;
-      default:
-        break;
+    if(post.post_hint) {
+      switch(post.post_hint) {
+        case 'image':
+          return (
+            <div>
+              <img
+                src={post.preview.images[0].resolutions[3].url}
+              >
+              </img>
+            </div>
+          )
+        case 'video':
+          return 'video'
+          // break;
+        case 'link':
+          return 'link';
+          // break;
+        case 'self':
+          const self_text_html = post.selftext_html;
+          console.log(self_text_html);
+          return 
+            <div style={{width: '75%'}}>
+              {ReactHtmlParser(self_text_html)}
+            </div>
+        // case 'rich:video':
+        //     const rich_video = post.secure_media_embed.content;
+        //     return <div style={{width: '100%'}}>
+        //       {ReactHtmlParser(rich_video)}
+        //     </div>
+        default:
+          break;
+      }
     }
+
+    if(!post.is_self && !post.is_video && !post.is_gallery) {
+      return (
+        <img
+          src={post.url}
+        ></img>
+      )
+    }
+
+    // if(post.is_gallery && post.media_metadata) {
+    //   let array = []
+    //   for(let [key, value] of Object.entries(post.media_metadata)) {
+    //     const gallery_image = (
+    //       <div>
+    //         <img
+    //           style={{width: '10%'}}
+    //           src={value.s.u}
+    //         >
+    //         </img>
+    //       </div>
+    //     )
+    //     array.push(gallery_image);
+    //   }
+    // }
   }
 
   return (

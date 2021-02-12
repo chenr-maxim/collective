@@ -2,8 +2,11 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 16%;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 16.6vw;
   justify-items: center;
 }
 
@@ -49,4 +52,12 @@ button:hover {
   -webkit-box-shadow: inset 0px 0px 2px black;
      -moz-box-shadow: inset 0px 0px 2px black;
           box-shadow: inset 0px 0px 2px black;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: ivory;
 }

@@ -1,6 +1,11 @@
-.subreddit_container {
+.subreddit_view_container {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.header {
+  display: flex;
 }
 
 .icon_img {
@@ -13,7 +18,5 @@
 
 .listingsContainer {
   display: flex;
-  width: 75%;
-  margin: 0 0 0 auto;
-  align-self: center;
+  margin: 0 0 0 21vw;
 }
