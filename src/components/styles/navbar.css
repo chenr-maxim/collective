@@ -22,4 +22,15 @@
   top: 16px;
   left: 50.7%;
   height: 30px;
+  background-color: #171717;
+  color: white;
+  border: 1px solid ivory;
+}
+
+.navbar_search:focus {
+  outline: none;
+}
+
+::placeholder {
+  color: white;
 }
