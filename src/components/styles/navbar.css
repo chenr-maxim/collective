@@ -1,10 +1,13 @@
 .navbar_container {
   display: flex;
-  width: 100%;
   position: fixed;
+  top: 0;
+  width: 100%;
   background: #171717;
   border-bottom: 1px solid ivory;
   height: 60px;
+  z-index: 2;
+  overflow: hidden;
 }
 
 .navbar_elements {
@@ -20,8 +23,9 @@
 .navbar_search {
   position: absolute;
   top: 16px;
-  left: 50.7%;
+  left: 50%;
   height: 30px;
+  width: 211px;
   background-color: #171717;
   color: white;
   border: 1px solid ivory;
@@ -32,5 +36,5 @@
 }
 
 ::placeholder {
-  color: white;
+  color: ivory;
 }

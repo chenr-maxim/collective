@@ -44,7 +44,7 @@ export class Sidebar extends React.Component {
 
     return (
       <div className="subredditContainer">
-        <button onClick={logoutAuth}> logout</button>
+        <button className="logoutButton" onClick={logoutAuth}> logout</button>
         <div className="collectiveTitle"> 
           co<span style={{color: "#2699FB"}}>ll</span>ective 
         </div>
