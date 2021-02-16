@@ -13,7 +13,7 @@ export const Posts = ({post}) => {
             post.preview.images || post.preview.images[0].resolutions ? 
             (<div>
               <img
-                // style={{width: '100%'}}
+                style={{width: '90%'}}
                 src={post.preview.images[0].resolutions[2].url}
               >
               </img>
@@ -29,7 +29,7 @@ export const Posts = ({post}) => {
           const self_text_html = post.selftext_html;
           console.log(self_text_html);
           return 
-            <div style={{width: '75%'}}>
+            <div style={{width: '90%'}}>
               {ReactHtmlParser(self_text_html)}
             </div>
         // case 'rich:video':
@@ -45,7 +45,7 @@ export const Posts = ({post}) => {
     if(!post.is_self && !post.is_video && !post.is_gallery) {
       return (
         <img
-          style={{width: '100%'}}
+          style={{width: '90%', objectFit: 'contain'}}
           src={post.url}
         ></img>
       )

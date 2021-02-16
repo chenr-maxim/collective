@@ -9,11 +9,11 @@
 }
 
 .icon_img {
-  width: 5%;
+  width: 5vw;
 }
 
 .banner_img {
-  width: 5vw;
+  width: inherit;
 }
 
 .listingsContainer {
