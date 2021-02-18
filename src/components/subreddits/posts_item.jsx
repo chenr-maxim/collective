@@ -98,20 +98,22 @@ export const Posts = ({post}) => {
               <div className="post_header">
                 {
                   post.stickied ?
-                  <div className="pin_icon">
-                    <img
-                      src="/images/pin2_icon.png"
-                      alt="pin"
-                    >
-                    </img>
-                    <div> Pinned by Moderators </div>
+                  <div className="pin_container">
+                    <div className="pin_icon">
+                      <img
+                        src="/images/pin2_icon.png"
+                        alt="pin"
+                      >
+                      </img>
+                      <div> Pinned by Moderators </div>
+                    </div> 
                   </div> : null
                 }
                 {
                   post.link_flair_text ?
                   <div className="link_flair">
-                  {post.link_flair_text}
-                </div> : null
+                    {post.link_flair_text}
+                  </div> : null
                 }
                 <div className="post_author">
                   {`posted by ${post.author.name}`}
@@ -129,9 +131,9 @@ export const Posts = ({post}) => {
               </div>
             </Row>
             <Row>
-            <div className="post_title">
-              {post.title}
-            </div>
+              <div className="post_title">
+                {post.title}
+              </div>
             </Row>
             <Row>
               <div className="post_media">
