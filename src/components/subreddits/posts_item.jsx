@@ -128,7 +128,7 @@ export const Posts = ({post}) => {
             </Row>
             <Row>
               {
-                returnMediaType(post) === null ?
+                returnMediaType(post) ?
                 <div className="post_media">
                   {
                     returnMediaType(post)
