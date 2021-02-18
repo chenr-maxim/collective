@@ -2,8 +2,12 @@ import "../styles/post_item.css";
 import {Container, Row, Col} from 'react-bootstrap';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
+const Player = (props) => {
+  let videourl = props.videourl.replace('.gifv', 'mp4');
+  return <video src={videourl} />
+}
+
 export const Posts = ({post}) => {
-  console.log(post);
 
   const returnMediaType = (post) => {
     if(post.post_hint) {
@@ -11,25 +15,28 @@ export const Posts = ({post}) => {
         case 'image':
           return (
             post.preview.images || post.preview.images[0].resolutions ? 
-            (<div>
+            (
               <img
-                style={{width: '90%'}}
-                src={post.preview.images[0].resolutions[2].url}
+                style={{width: '60%'}}
+                // src={post.preview.images[0].resolutions[2].url}
+                src={post.preview.images[0].source.url}
               >
               </img>
-            </div>) : null
+            ) : null
           )
         case 'video':
-          return 'video'
-          // break;
+          return null
+          // return 'video'
+          
         case 'link':
-          return 'link';
-          // break;
+          return null
+          // return 'link';
+          
         case 'self':
           const self_text_html = post.selftext_html;
-          console.log(self_text_html);
+          // console.log(self_text_html);
           return 
-            <div style={{width: '90%'}}>
+            <div style={{width: '85%'}}>
               {ReactHtmlParser(self_text_html)}
             </div>
         // case 'rich:video':
@@ -38,34 +45,18 @@ export const Posts = ({post}) => {
         //       {ReactHtmlParser(rich_video)}
         //     </div>
         default:
-          break;
+          return null;
       }
     }
 
     if(!post.is_self && !post.is_video && !post.is_gallery) {
       return (
         <img
-          style={{width: '90%', objectFit: 'contain'}}
+          style={{width: '80%'}}
           src={post.url}
         ></img>
       )
     }
-
-    // if(post.is_gallery && post.media_metadata) {
-    //   let array = []
-    //   for(let [key, value] of Object.entries(post.media_metadata)) {
-    //     const gallery_image = (
-    //       <div>
-    //         <img
-    //           style={{width: '10%'}}
-    //           src={value.s.u}
-    //         >
-    //         </img>
-    //       </div>
-    //     )
-    //     array.push(gallery_image);
-    //   }
-    // }
   }
 
   return (
@@ -136,8 +127,32 @@ export const Posts = ({post}) => {
               </div>
             </Row>
             <Row>
-              <div className="post_media">
-                {returnMediaType(post)}
+              {
+                returnMediaType(post) === null ?
+                <div className="post_media">
+                  {
+                    returnMediaType(post)
+                  }
+                </div> : null
+              }
+            </Row>
+            <Row>
+              <div className="post_details">
+                <button className="post_details_button">
+                  {post.num_comments} comments 
+                </button>
+                <button className="share_button">
+                  <img
+                    src="/images/share.png"
+                  /> 
+                  <div className="share_text"> share </div>
+                </button>
+                <button className="post_details_button">
+                  save
+                </button>
+                <button className="post_details_button">
+                  report
+                </button>
               </div>
             </Row>
           </Col>
