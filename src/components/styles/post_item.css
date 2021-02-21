@@ -96,7 +96,7 @@
 
 .post_title {
   display: flex;
-  margin: 10px 0 0 0;
+  margin: 5px 0 0 0;
   overflow-wrap: inherit;
 }
 
@@ -108,7 +108,7 @@
 .post_media {
   display: flex;
   justify-content: center;
-  margin: 50px 18% 0 auto;
+  margin: 20px 18% 0 auto;
   width: 75%;
 }
 

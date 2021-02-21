@@ -12,7 +12,7 @@ class Login extends React.Component {
   render() {
     return (
       <>
-        <h4> learning react is hard </h4>
+        <h4> connect your reddit account to use collective</h4>
         <a href={authenticationUrl}> connect to reddit </a>
       </>
     )

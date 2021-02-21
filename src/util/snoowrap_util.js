@@ -57,6 +57,7 @@ export const getSubredditRising = (name) => {
   return content;
 }
 
-// export const getPostComments = (id) => {
-//   const post_comments = getSnoowrap().getSubreddit()
-// }
+export const getPostComments = (id) => {
+  const post_comments = getSnoowrap().getSubmissions(id).expandReplies({limit: Infinity, depth: Infinity}).then(console.log);
+  return post_comments;
+}

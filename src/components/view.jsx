@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {ItemTypes} from './subreddits/ItemTypes';
 import {DropTarget, useDrop} from 'react-dnd';
-import { getSubredditContent, getSubredditHot } from '../util/snoowrap_util';
+import {getSubredditContent, getSubredditHot, getPostComments} from '../util/snoowrap_util';
 import {SubredditView} from './subreddits/subreddit_view';
 
 export const View = () => {
@@ -53,10 +53,12 @@ export const View = () => {
             <SubredditView 
               content = {selectedSubreddit} 
               listings = {subredditListings}
+              getPostComments = {this.getPostComments}
             /> : 
             <SubredditView 
               content = {selectedSubreddit[0]}
               listings = {subredditListings} 
+              getPostComments = {this.getPostComments}
             />
           }
           {isOver && (

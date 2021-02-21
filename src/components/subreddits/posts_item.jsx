@@ -9,6 +9,7 @@ const Player = (props) => {
 
 export const Posts = ({post}) => {
 
+
   const returnMediaType = (post) => {
     if(post.post_hint) {
       switch(post.post_hint) {
@@ -17,7 +18,7 @@ export const Posts = ({post}) => {
             post.preview.images || post.preview.images[0].resolutions ? 
             (
               <img
-                style={{width: '60%'}}
+                style={{width: '65%'}}
                 // src={post.preview.images[0].resolutions[2].url}
                 src={post.preview.images[0].source.url}
               >
@@ -52,7 +53,7 @@ export const Posts = ({post}) => {
     if(!post.is_self && !post.is_video && !post.is_gallery) {
       return (
         <img
-          style={{width: '80%'}}
+          style={{width: '85%'}}
           src={post.url}
         ></img>
       )
