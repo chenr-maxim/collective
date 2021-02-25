@@ -1,0 +1,35 @@
+.comment_container {
+  display: flex;
+  width: 100%;
+  /* border: 1px solid purple; */
+  margin: 0 0 10px 0;
+  padding: 10px 2em 10px 0;
+}
+
+.left {
+  display: flex;
+  min-width: 30px;
+
+  /* background-color: white; */
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.comment_header {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 0 5px 0;
+}
+
+.comment_body {
+  font-size: 16px;
+}
+
+.upvotes {
+  font-weight: normal;
+  margin-left: 5px;
+}

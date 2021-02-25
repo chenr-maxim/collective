@@ -1,14 +1,33 @@
 import "../styles/post_item.css";
 import {Container, Row, Col} from 'react-bootstrap';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import React, {useState, useEffect} from 'react';
+import PostComments from '../posts_comments';
+import {getPostComments} from '../../util/snoowrap_util';
 
-const Player = (props) => {
-  let videourl = props.videourl.replace('.gifv', 'mp4');
-  return <video src={videourl} />
-}
+// const Player = (props) => {
+//   let videourl = props.videourl.replace('.gifv', 'mp4');
+//   return <video src={videourl} />
+// }
 
 export const Posts = ({post}) => {
+  const [postCommentsList, setPostComments] = useState([]);
+  const [showCommentsFlag, setCommentsFlag] = useState(false);
 
+  // useEffect(() => {
+  //   getPostComments(post.id)
+  //   .then(response => {
+  //     setPostComments(response.comments);
+  //   })
+  // }, [])
+
+  const showComments = () => {
+    setCommentsFlag(!showCommentsFlag);
+    getPostComments(post.id)
+    .then(response => {
+      setPostComments(response.comments);
+    })
+  }
 
   const returnMediaType = (post) => {
     if(post.post_hint) {
@@ -139,7 +158,11 @@ export const Posts = ({post}) => {
             </Row>
             <Row>
               <div className="post_details">
-                <button className="post_details_button">
+                <button 
+                  onClick={showComments}
+                  className={
+                    showCommentsFlag ? "post_details_button active" : "post_details_button"
+                  }>
                   {post.num_comments} comments 
                 </button>
                 <button className="share_button">
@@ -154,6 +177,14 @@ export const Posts = ({post}) => {
                 <button className="post_details_button">
                   report
                 </button>
+              </div>
+            </Row>
+            <Row>
+              <div className="comment_section">
+                {
+                  showCommentsFlag ? 
+                    <PostComments commentsList={postCommentsList} /> : null
+                }
               </div>
             </Row>
           </Col>

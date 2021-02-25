@@ -4,20 +4,16 @@ import {Posts} from "./posts_item";
 // import {Container, Row, Col} from 'react-bootstrap';
 import "../styles/subreddit_view.css";
 
-export const SubredditView = ({content, listings, getPostComments}) => {
+export const SubredditView = ({content, listings}) => {
   const posts = listings.length !== 0 ? listings.map((post, i) => {
     return (
     <Posts 
       key={i}
-      post={post} 
+      post={post}
       />
     )
   }) : [];
-
-  // useEffect (() => {
-  //   this._div.scrollTop = 0;
-  // },[]);
-
+  
   return (
     <div 
       className="subreddit_view_container">

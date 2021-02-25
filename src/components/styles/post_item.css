@@ -134,3 +134,7 @@
   padding: 0 0 0 0;
   width: 2em;
 }
+
+.active {
+  filter: invert(45%) sepia(56%) saturate(2013%) hue-rotate(190deg) brightness(103%) contrast(104%);
+}

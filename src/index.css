@@ -36,3 +36,7 @@ html {
       url("./components/styles/font/VisueltPro/VisueltPro-Light.woff2") format("woff2");
   font-weight: lighter;
 }
+
+.row {
+  margin-right: 0;
+}
