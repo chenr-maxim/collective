@@ -12,15 +12,18 @@
   width: 5vw;
 }
 
+.content_view {
+  height: 100vh;
+  width: 100vw;
+  margin-top: 60px;
+}
+
 .banner_img {
-  width: inherit;
+  max-width: 100%;
+  height: auto;
 }
 
 .listingsContainer {
   display: flex;
   margin: 0 0 0 18vw;
-}
-
-.content_view {
-  margin-top: 60px;
 }

@@ -15,11 +15,8 @@ export const Posts = ({post}) => {
   const [showCommentsFlag, setCommentsFlag] = useState(false);
 
   // useEffect(() => {
-  //   getPostComments(post.id)
-  //   .then(response => {
-  //     setPostComments(response.comments);
-  //   })
-  // }, [])
+  //   return () => setCommentsFlag(false);
+  // },[])
 
   const showComments = () => {
     setCommentsFlag(!showCommentsFlag);
@@ -95,7 +92,7 @@ export const Posts = ({post}) => {
               <div className="votes">
                 {post.ups}
               </div>
-              <button className="vote_button">
+              <button className="downvote_button">
                 <img
                   className="vote_image"
                   src="/images/downvote.png" 
@@ -104,7 +101,7 @@ export const Posts = ({post}) => {
               </button>
             </div>
           </Col>
-          <Col style={{margin: '0 0 0 15px'}}>
+          <Col style={{width: '100%', margin: '0 0 0 15px'}}>
             <Row>
               <div className="post_header">
                 {
@@ -183,15 +180,16 @@ export const Posts = ({post}) => {
               <div className="comment_section">
                 {
                   showCommentsFlag ? 
-                    <PostComments commentsList={postCommentsList} /> : null
+                    <PostComments 
+                      commentsList={postCommentsList} 
+                      showComments={showComments}
+                    /> : null
                 }
               </div>
             </Row>
           </Col>
         </Row>
       </Container>
-
-
     </div>
   )
 }

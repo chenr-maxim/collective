@@ -18,7 +18,7 @@ export const View = () => {
   });
   const [selectedSubreddit, setSubredditContent] = useState([]);
   const [subredditListings, setSubredditListings] = useState([]);
-  const [columns, setNumberOfColumns] = useState(1);
+  // const [columns, setNumberOfColumns] = useState(1);
 
   const renderSubreddit = async (item) => {
     const subreddit = item.obj;

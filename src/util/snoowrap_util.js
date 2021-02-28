@@ -33,7 +33,9 @@ export const getSubredditContent = (name) => {
 }
 
 export const getSubredditHot = (name) => {
-  const content = getSnoowrap().getHot(`${name}`, {limit: 2});
+  const content = getSnoowrap().getHot(`${name}`, 
+  // {limit: 1}
+  );
   return content;
 }
 
@@ -58,8 +60,7 @@ export const getSubredditRising = (name) => {
 }
 
 export const getPostComments = async (id) => {
-  // const post_comments = getSnoowrap().getSubmission(id).expandReplies().then(console.log);
-  const content = await getSnoowrap().getSubmission(id).expandReplies({limit: 50, depth: 5})
+  const content = await getSnoowrap().getSubmission(id).expandReplies({limit: 15, depth: 5})
   return content;
 
 }

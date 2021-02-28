@@ -75,7 +75,7 @@
   align-self: flex-start;
 }
 
-.vote_button {
+.vote_button, .downvote_button {
   display: flex;
   position: relative;
   width: 1.5em;
@@ -84,6 +84,10 @@
   border: none;
   outline: none;
   padding: 0 0 0 0;
+}
+
+.downvote_button:hover {
+  filter: invert(52%) sepia(45%) saturate(5764%) hue-rotate(7deg) brightness(93%) contrast(97%);
 }
 
 .vote_button:hover, .post_details_button:hover, .share_text:hover {
@@ -102,7 +106,7 @@
 
 .post_details {
   display: flex;
-  margin: 0 0 0 0;
+  margin: 5px 0 0 0;
 }
 
 .post_media {
@@ -137,4 +141,8 @@
 
 .active {
   filter: invert(45%) sepia(56%) saturate(2013%) hue-rotate(190deg) brightness(103%) contrast(104%);
+}
+
+.comment_section {
+  min-width: 100%;
 }
