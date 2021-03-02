@@ -60,7 +60,7 @@ export const getSubredditRising = (name) => {
 }
 
 export const getPostComments = async (id) => {
-  const content = await getSnoowrap().getSubmission(id).expandReplies({limit: 15, depth: 5})
+  const content = await getSnoowrap().getSubmission(id).expandReplies({limit: 20, depth: 2});
   return content;
 
 }

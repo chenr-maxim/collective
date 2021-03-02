@@ -16,17 +16,6 @@ class Homepage extends React.Component {
     }
   }
 
-  componentDidMount() {
-    // const subreddits = await getUserSubreddits().then((listings) => {
-    //   const [...rest] = listings;
-    //   return rest;
-    // }).catch((err) => {
-    //   console.log(err);
-    // });
-    // await this.setState({subredditEmpty: false, subreddits: subreddits});
-
-  }
-
   render() {
 
     return (

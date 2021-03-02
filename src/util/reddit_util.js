@@ -26,7 +26,7 @@ export const redditAuthToken = (code) => {
     data: redditData,
     headers: {
       "Authorization": `Basic ` + authBasic,
-      "user-agent": "collective",
+      "User-agent": "collective app v1.0",
       "Content-Type": "application/x-www-form-urlencoded"
     }
   })

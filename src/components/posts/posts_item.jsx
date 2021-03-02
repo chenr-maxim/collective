@@ -2,7 +2,7 @@ import "../styles/post_item.css";
 import {Container, Row, Col} from 'react-bootstrap';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import React, {useState, useEffect} from 'react';
-import PostComments from '../posts_comments';
+import PostComments from './posts_comments';
 import {getPostComments} from '../../util/snoowrap_util';
 
 // const Player = (props) => {
@@ -15,7 +15,10 @@ export const Posts = ({post}) => {
   const [showCommentsFlag, setCommentsFlag] = useState(false);
 
   // useEffect(() => {
-  //   return () => setCommentsFlag(false);
+  //   return () => {
+  //     setCommentsFlag(false);
+  //     postCommentsList([]);
+  //   };
   // },[])
 
   const showComments = () => {
@@ -183,6 +186,7 @@ export const Posts = ({post}) => {
                     <PostComments 
                       commentsList={postCommentsList} 
                       showComments={showComments}
+                      setCommentsFlag={setCommentsFlag}
                     /> : null
                 }
               </div>

@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {Navbar} from "./navbar";
-import {Posts} from "./posts_item";
+import {Posts} from "../posts/posts_item";
 // import {Container, Row, Col} from 'react-bootstrap';
 import "../styles/subreddit_view.css";
 
@@ -13,7 +13,7 @@ export const SubredditView = ({content, listings}) => {
       />
     )
   }) : [];
-  
+
   return (
     <div 
       className="subreddit_view_container">

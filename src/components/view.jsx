@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {ItemTypes} from './subreddits/ItemTypes';
 import {DropTarget, useDrop} from 'react-dnd';
-import {getSubredditContent, getSubredditHot} from '../util/snoowrap_util';
+import {getSubredditContent, getSubredditHot, getPostComments} from '../util/snoowrap_util';
 import {SubredditView} from './subreddits/subreddit_view';
 
 export const View = () => {
@@ -18,7 +18,7 @@ export const View = () => {
   });
   const [selectedSubreddit, setSubredditContent] = useState([]);
   const [subredditListings, setSubredditListings] = useState([]);
-  // const [columns, setNumberOfColumns] = useState(1);
+  const [columns, setNumberOfColumns] = useState(1);
 
   const renderSubreddit = async (item) => {
     const subreddit = item.obj;

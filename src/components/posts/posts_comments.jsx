@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './styles/posts_comments.css';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
-const PostsComments = ({commentsList, showComments}) => {
+const PostsComments = ({commentsList, showComments, setCommentsFlag}) => {
 
-  console.log(commentsList);
-
+  useEffect(() => {
+    return () => {
+      setCommentsFlag(false);
+    }
+  }, [])
+  
   const comment = commentsList.length !== 0 ? commentsList.map((comment, i) => {
     const emptyReplies = comment.replies.length !== 0 ? false : true;
     console.log(comment);

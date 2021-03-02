@@ -51,8 +51,9 @@
 
 .post_awards {
   display: flex;
-  width: 100px;
+  width: 350px;
   padding: 0 5px 0 0;
+  /* overflow: hidden; */
 }
 
 .post_awards_icon {
